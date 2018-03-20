@@ -22,4 +22,9 @@ public class CatalogMvcTest {
 	public void shouldRetrieveProducts() throws Exception {
 		mvc.perform(get("/products")).andExpect(status().isOk());
 	}
+	
+	@Test
+	public void shouldRetrieveAnIndividualProduct() throws Exception {
+		mvc.perform(get("/products/42")).andExpect(status().isOk());
+	}
 }
