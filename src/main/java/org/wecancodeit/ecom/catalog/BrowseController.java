@@ -11,7 +11,7 @@ public class BrowseController {
 
 	@RequestMapping("/products")
 	public Collection<Product> getProducts() {
-		return Collections.singleton(new Product());
+		return Collections.singleton(new Product("arbitrary product name"));
 	}
 
 }
