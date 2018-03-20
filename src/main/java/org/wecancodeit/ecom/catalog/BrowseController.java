@@ -17,7 +17,7 @@ public class BrowseController {
 
 	@RequestMapping("/products/{id}")
 	public Product getProduct(@PathVariable(name="id") long id) {
-		return new Product("arbitrary product name");
+		return new Product("arbitrary product");
 	}
 
 }

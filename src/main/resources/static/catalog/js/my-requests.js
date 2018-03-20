@@ -6,7 +6,10 @@ xhr.onreadystatechange = function() {
 
 		for (let product of res) {
 			const productContainer = document.createElement('div')
-			productContainer.innerText = product.name
+			const productLink = document.createElement('a')
+			productLink.setAttribute('href', '/catalog/product.html');
+			productLink.innerText = product.name
+			productContainer.appendChild(productLink)
 			productsContainer.appendChild(productContainer)
 		}
 	}
