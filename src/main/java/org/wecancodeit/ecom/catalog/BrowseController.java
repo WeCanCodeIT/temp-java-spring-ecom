@@ -29,7 +29,7 @@ public class BrowseController {
 		throw new ProductNotFoundException();
 	}
 
-	// @ResponseStatus(HttpStatus.NOT_FOUND)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public class ProductNotFoundException extends RuntimeException {
 	}
 }
