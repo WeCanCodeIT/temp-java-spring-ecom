@@ -34,27 +34,30 @@ public class BrowseControllerTest {
 	}
 	
 	@Test
-	public void shouldGetProducts() {
+	public void shouldRetrieveProducts() {
 		when(productRepo.findAll()).thenReturn(Collections.singleton(product));
 
-		Iterable<Product> result = underTest.getProducts();
+		Iterable<Product> result = underTest.findProducts();
 		
 		assertThat(result, contains(any(Product.class)));
 	}
 	
 	@Test
-	public void shouldGetProductsFromDb() {
+	public void shouldRetrieveProductsFromDb() {
 		when(productRepo.findAll()).thenReturn(Collections.singleton(product));
 
-		Iterable<Product> result = underTest.getProducts();
+		Iterable<Product> result = underTest.findProducts();
 		
 		assertThat(result, contains(product));
 	}
 	
 	@Test
-	public void shouldGetAnIndividualProduct() {
-		Product result = underTest.getProduct(42L);
+	public void shouldRetrieveAnIndividualProduct() {
+		long id = 42L;
+		when(productRepo.findOne(id)).thenReturn(product);
 		
-		assertThat(result, is(not(nullValue())));
+		Product result = underTest.findProduct(id);
+		
+		assertThat(result, is(product));
 	}
 }
