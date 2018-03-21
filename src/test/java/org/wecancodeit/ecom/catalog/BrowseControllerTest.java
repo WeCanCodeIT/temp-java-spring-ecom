@@ -3,8 +3,6 @@ package org.wecancodeit.ecom.catalog;
 import static org.hamcrest.Matchers.any;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -16,6 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.repository.CrudRepository;
+import org.wecancodeit.ecom.catalog.BrowseController.ProductNotFoundException;
 
 public class BrowseControllerTest {
 
@@ -59,5 +58,11 @@ public class BrowseControllerTest {
 		Product result = underTest.findProduct(id);
 		
 		assertThat(result, is(product));
+	}
+	
+	@Test(expected = ProductNotFoundException.class)
+	public void shouldReturnNotFoundForBadProductId() {
+		long invalidProductId = 42L;
+		underTest.findProduct(invalidProductId);
 	}
 }
