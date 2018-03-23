@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Products Page</title>
+    <link rel="stylesheet" href="/catalog/css/styles.css" />
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,8 @@
             <section class="products-list">
                 <h2>Here's a list of all of our current products:</h2>
                 <ul>
-                    Loading...
+                    <li th:if="${products.size() == 0}">Currently no products. Add the first one!</li>
+                    <li th:if="${products.size() != 0}" th:each="product : ${products}"><a th:href="@{'/products/' + ${product.id}}" th:text="${product.name}"></a></li>
                 </ul>
             </section>
         </main>

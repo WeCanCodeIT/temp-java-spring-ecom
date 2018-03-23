@@ -1,0 +1,60 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font: 20px/1.618em sans-serif;
+}
+
+a {
+	color: #39add1;
+	text-decoration: none;
+}
+h1, h2 {
+	border-bottom: 1px solid #999;
+	margin: 0.5em 1em;
+	padding-bottom: 0.5em;
+}
+ul {
+	list-style-type: none;
+	margin: 1em 0;
+}
+li {
+	border-left: 5px solid #39add1;
+	padding: 0.5em 1em;
+}
+li a {
+	border-radius: 5px;
+	display: block;
+	padding: 0.5em 1em;
+}
+li:nth-child(even) a {
+	background-color: #eee;
+}
+
+.add-product {
+	display: flex;
+	justify-content: center;
+}
+	.add-product *:focus {
+		outline: none;
+	}
+	.add-product input {
+		border: 1px solid #999;
+		border-radius: 5px 0 0 5px;
+		padding: 0.25em 0.5em;
+	}
+	.add-product button {
+		background-color: #39add1;
+		border: none;
+		border-radius: 0 5px 5px 0;
+		color: white;
+		padding: 0.25em 0.5em;
+	}
+.container {
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 90%;
+}
