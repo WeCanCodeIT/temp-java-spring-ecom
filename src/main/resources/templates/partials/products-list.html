@@ -1,0 +1,1 @@
+<li th:each="product : ${products}"><a th:href="@{'/products/' + ${product.id}}" th:text="${product.name}"></a></li>
